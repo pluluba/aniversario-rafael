@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Aniversário!</title>
+
+  <!-- CSS embutido: aqui estão os estilos da página -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: left;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .normal {
+      font-weight: 400;
+    }
+
+    .destaque {
+      color: #00ffff;
+      font-weight: bold;
+    }
+
+    .icone {
+      font-size: 3rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .mensagem {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background-color: transparent;
+      color: white;
+      border: 1px solid #00ffff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00ffff;
+      color: black;
+    }
+
+    .btn-icone {
+      font-size: 1rem;
+    }
+
+    .modal {
+      display: none; /* começa escondido */
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: #111;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .fechar {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #00ffff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Conteúdo principal -->
+  <div class="container">
+    <h1>
+      Feliz aniversário para o cara
+      <span class="normal">(digo isso com toda a tranquilidade)</span>
+      <span class="destaque">mais gostoso que existe!</span>
+    </h1>
+
+    <div class="icone">⚠️</div>
+
+    <p class="mensagem">
+      <!-- MENSAGEM PERSONALIZADA -->
+      Eu sei que eu sou bem chatinha as vezes e também dou umas surtadas, mas assim, eu me amarro demais na sua.
+      Eu gosto muito de você e o que eu puder fazer por você eu irei.
+      INFELIZMENTE você mora no meu coração mas abafa.!
+    </p>
+
+    <!-- Botão para abrir o presente -->
+    <button onclick="abrirModal()">
+      Acesse seu presente: <span class="btn-icone">⚠️</span>
+    </button>
+
+    <!-- Modal (pop-up) que aparece com imagem -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <!-- Botão para fechar o modal -->
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+
+        <!-- IMAGEM DO PRESENTE (adicione o arquivo presente.jpg na mesma pasta) -->
+        <img src="presente.jpg" alt="Seu presente" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ÁUDIO: coloque o arquivo surpresa.mp3 na mesma pasta -->
+  <audio id="audio" src="surpresa.mp3"></audio>
+
+  <!-- JavaScript embutido -->
+  <script>
+    // Função para abrir o modal e tocar a música
+    function abrirModal() {
+      document.getElementById("modal").style.display = "flex";
+      const audio = document.getElementById("audio");
+      audio.currentTime = 0;
+      audio.play();
+    }
+
+    // Função para fechar o modal e parar a música
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none";
+      const audio = document.getElementById("audio");
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  </script>
+</body>
+</html>
